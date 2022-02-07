@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity(), JCInterfaceCallback {
     fun initWebView(){
         binding.mWebView.webViewClient = object:WebViewClient(){
             override fun onPageFinished(view: WebView?, url: String?) {
-                view?.loadUrl("javascript:window.Android.getHtml(document.getElementsByTagName('html')[0].innerHTML);");
+                //view?.loadUrl("javascript:window.Android.getHtml(document.getElementsByTagName('html')[0].innerHTML);");
             }
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 if(url != prevPageUrl) {
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity(), JCInterfaceCallback {
                         val doc = deferred.await()
                         doc?.let {
                             view?.post {
-                                view?.loadDataWithBaseURL(BASE_URL, doc, "text/html", "UTF-8", null)
+                               view.loadDataWithBaseURL(url, doc, "text/html", "UTF-8", null)
                             }
                         }
 
