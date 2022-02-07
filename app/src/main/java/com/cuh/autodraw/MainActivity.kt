@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity(), JCInterfaceCallback {
     }
 
     override fun htmlDataMade(html:String) {
-       binding.mWebView.loadUrl(html)
+      // binding.mWebView.loadUrl(html)
     }
 
 

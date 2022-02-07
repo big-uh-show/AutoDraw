@@ -4,6 +4,7 @@ import android.util.Log
 import kotlinx.coroutines.*
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
+import org.jsoup.nodes.Element
 
 
 class JsoupHtmlParser {
@@ -23,7 +24,10 @@ class JsoupHtmlParser {
         val meta = data.getElementsByAttributeValueContaining("content","Google Docs")
 
         if(meta.size > 0){
-
+            val checkBoxes = data.getElementsByAttributeValueContaining("aria-checked","false")
+            for(checkBox:Element in checkBoxes){
+                data.getElementById(checkBox.id()).
+            }
         }
 
        return data.toString()
